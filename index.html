@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0B10">
+<meta name="description" content="Manim-style animations: maths, graphs, logic and set theory, shapes, stickers, a timeline with keyframes, and video export.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Animath</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-panel="timeline">
+<header class="bar">
+  <a class="brand" href="./" aria-label="Animath"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" rx="44" fill="#000000"/><path d="M30 150 C 60 150 70 50 100 50 C 130 50 140 150 170 150" fill="none" stroke="#58C4DD" stroke-width="12" stroke-linecap="round"/><circle cx="100" cy="50" r="14" fill="#FFFF00"/><path d="M30 168 H170" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity=".55"/></svg></svg><b>Animath</b></a>
+  <select id="proj" aria-label="Project"></select>
+  <button id="menuBtn" class="iconbtn" type="button" aria-label="Project menu">⋯</button>
+  <span class="grow"></span>
+  <button id="undo" class="iconbtn" type="button" aria-label="Undo" title="Undo">↶</button>
+  <button id="redo" class="iconbtn" type="button" aria-label="Redo" title="Redo">↷</button>
+  <button id="exportBtn" class="btn primary" type="button">Export</button>
+</header>
+<div class="body">
+  <aside id="addPanel" class="panel side left" data-p="add" aria-label="Add"></aside>
+  <section class="center">
+    <div id="stageWrap"><canvas id="stage" aria-label="Animation preview"></canvas></div>
+    <div class="transport">
+      <button id="toStart" class="iconbtn" type="button" aria-label="Go to start">⏮</button>
+      <button id="play" class="playbtn" type="button" aria-label="Play">▶</button>
+      <button id="toEnd" class="iconbtn" type="button" aria-label="Go to end">⏭</button>
+      <span id="time" class="time">0:00.0</span>
+      <span class="grow"></span>
+      <button id="loopBtn" class="iconbtn tog" type="button" aria-pressed="false" title="Loop playback" aria-label="Loop playback">↻</button>
+      <button id="guides" class="iconbtn tog" type="button" aria-pressed="false" title="Coordinate guides" aria-label="Coordinate guides">⌗</button>
+      <select id="aspect" aria-label="Aspect ratio"></select>
+    </div>
+    <div id="timeline" class="panel" data-p="timeline" aria-label="Timeline"></div>
+  </section>
+  <aside id="inspector" class="panel side right" data-p="inspect" aria-label="Inspector"></aside>
+</div>
+<nav class="mtabs" aria-label="Panels">
+  <button type="button" data-p="timeline">Timeline</button>
+  <button type="button" data-p="add">＋ Add</button>
+  <button type="button" data-p="inspect">Edit</button>
+</nav>
+<dialog id="exportDlg" aria-label="Export"></dialog>
+<dialog id="menuDlg" aria-label="Project"></dialog>
+<script src="core.js"></script>
+<script src="editor.js"></script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}</script>
+</body>
+</html>
